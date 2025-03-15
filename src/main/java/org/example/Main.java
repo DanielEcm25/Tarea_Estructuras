@@ -1,14 +1,10 @@
 package org.example;
-
 import java.util.Scanner;
 import java.util.Stack;
-
 public class Main {
-
     private static Stack<Integer> torre1 = new Stack<>();
     private static Stack<Integer> torre2 = new Stack<>();
     private static Stack<Integer> torre3 = new Stack<>();
-
     public static void main(String[] args) {
         //Preguntándole al usuario con cuántos discos desea jugar
         Scanner entrada = new Scanner(System.in);
@@ -18,6 +14,9 @@ public class Main {
         for (int i = discos; i >= 1; i--) {
             torre1.push(i);
         }
+        //Mostrando el estado inicial de las torres
+        mostrarTorres();
+        //Llamando el método principal (Hannoi)
         hanoi(discos, torre1, torre2, torre3);}
     //Método Hannoi
     public static void hanoi(int discos, Stack<Integer> origen, Stack<Integer> auxiliar, Stack<Integer> destino) {
@@ -25,12 +24,14 @@ public class Main {
         a la torre que se pase como origen a la que se nombre destino*/
         if (discos == 1) {
             //Llamando al moverDisco
+            moverDisco(origen, destino);
         /*si hay más de un disco:
         Ahora la torre auxiliar será la torre destino
         Se moverá n-1 discos desde el origen al auxiliar*/
         } else {
             //La torre de apoyo será ahora la torre destino
             hanoi(discos - 1, origen, destino, auxiliar);
+            moverDisco(origen,destino);
             hanoi(discos - 1, auxiliar, origen, destino);
         }
     }
@@ -52,5 +53,3 @@ public class Main {
             e.printStackTrace();}
     }
 }
-
-
