@@ -34,6 +34,23 @@ public class Main {
             hanoi(discos - 1, auxiliar, origen, destino);
         }
     }
-
+    //Método para mover los discos
+    //Tiene como parámetro una torre origen y una de destino
+    public static void moverDisco(Stack<Integer> origen, Stack<Integer> destino) {
+        /*Quita el primer disco que este en el origen (con pop()) y lo agrega
+        a la torre destino con .push()*/
+        destino.push(origen.pop());
+        mostrarTorres();
     }
+    //Método para mostrar el estado de las torres cuando se llame
+    public static void mostrarTorres() {
+        System.out.println("Estado de las torres:\nTorre 1: " + torre1+"\nTorre 2: " + torre2+"\nTorre 3: " + torre3);
+        System.out.println("---------------------------");
+        try{
+            Thread.sleep(1000);
+        }catch(InterruptedException e){
+            e.printStackTrace();}
+    }
+}
+
 
