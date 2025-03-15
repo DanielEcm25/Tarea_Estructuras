@@ -18,6 +18,22 @@ public class Main {
         for (int i = discos; i >= 1; i--) {
             torre1.push(i);
         }
+        hanoi(discos, torre1, torre2, torre3);}
+    //Método Hannoi
+    public static void hanoi(int discos, Stack<Integer> origen, Stack<Integer> auxiliar, Stack<Integer> destino) {
+        /*si solo hay que mover un disco en la torre de origen, se mandará directamente
+        a la torre que se pase como origen a la que se nombre destino*/
+        if (discos == 1) {
+            //Llamando al moverDisco
+        /*si hay más de un disco:
+        Ahora la torre auxiliar será la torre destino
+        Se moverá n-1 discos desde el origen al auxiliar*/
+        } else {
+            //La torre de apoyo será ahora la torre destino
+            hanoi(discos - 1, origen, destino, auxiliar);
+            hanoi(discos - 1, auxiliar, origen, destino);
+        }
+    }
 
     }
-}
+
